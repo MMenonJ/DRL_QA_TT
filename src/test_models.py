@@ -1,8 +1,9 @@
-from Environment_group_fixed_length_BM25 import *
+from Environment_group_fixed_length import *
 import numpy as np
 from stable_baselines3 import DQN, PPO
 
-PPO_model_paths = ["model_checkpoints/PPO_MLP_BM25_100000_steps"]
+
+PPO_model_paths = ["model_checkpoints/PPO_MLP_100000_steps"]
 
 models = []
 #for i in range(len(DQN_model_paths)):
@@ -30,7 +31,7 @@ for model,model_name in models:
         cont += 1
     print('F1-score for ' + str(model_name) + ' rules: ' + str(np.mean(env.f1_scores)))
     print('EM for ' + str(model_name) + ' rules: ' + str(np.mean(env.em_scores)))
-    with open('test_models_bm25.txt', 'a', encoding='utf-8') as my_file:
+    with open('test_models.txt', 'a', encoding='utf-8') as my_file:
         my_file.write('F1-score for ' + str(model_name) + ' rules: ' + str(np.mean(env.f1_scores)) + '\n')
         my_file.write('EM for ' + str(model_name) + ' rules: ' + str(np.mean(env.em_scores)) + '\n')
     del env

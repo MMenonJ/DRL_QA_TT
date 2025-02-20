@@ -1,4 +1,4 @@
-from Environment_group_fixed_length_BM25 import *
+from Environment_group_fixed_length import *
 import numpy as np
 
 
@@ -22,7 +22,7 @@ for rule in rules:
             end_validation = env.end_validation
     print('F1-score for ' + str(rule) + ' rules: ' + str(np.mean(env.f1_scores)))
     print('EM for ' + str(rule) + ' rules: ' + str(np.mean(env.em_scores)))
-    with open('rules_results_BM25.txt', 'a', encoding='utf-8') as my_file:
+    with open('rules_results.txt', 'a', encoding='utf-8') as my_file:
         my_file.write('F1-score for ' + str(rule) + ' rules: ' + str(np.mean(env.f1_scores)) + '\n')
         my_file.write('EM for ' + str(rule) + ' rules: ' + str(np.mean(env.em_scores)) + '\n')
     del env
